@@ -34,7 +34,10 @@ export function TiplocList({
       {isLoading ? (
         <h1>Loading Data...</h1>
       ) : (
-        <section>{arrOfJsxTiplocElements}</section>
+        <section>
+          <p>Number Of TIPLOCS: {listOfTiplocs.length}</p>
+          <div>{arrOfJsxTiplocElements}</div>
+        </section>
       )}
     </>
   );
