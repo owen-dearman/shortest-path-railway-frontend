@@ -12,5 +12,19 @@ export function reducer(state: State, action: Action): State {
         ...state,
         railwayGraph: action.railwayGraph,
       };
+    case "update-path":
+      return {
+        ...state,
+        path: {
+          origin: action.origin,
+          destination: action.destination,
+          shortestPath: action.shortestPath,
+        },
+      };
+    case "clear-path":
+      return {
+        ...state,
+        path: { ...state.path, shortestPath: null },
+      };
   }
 }

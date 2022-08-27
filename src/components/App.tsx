@@ -6,9 +6,10 @@ import { Homepage } from "./Homepage";
 import { useReducer } from "react";
 import { defaultState } from "../utils/StateAndAction";
 import { reducer } from "../utils/reducer";
+import { ShortestPathPage } from "./ShortestPathPage";
 
 function App(): JSX.Element {
-  const [{ isLoading }, dispatch] = useReducer(reducer, defaultState);
+  const [{ isLoading, path }, dispatch] = useReducer(reducer, defaultState);
   return (
     <>
       <Router>
@@ -18,6 +19,16 @@ function App(): JSX.Element {
           <Route
             path="/tiplocs"
             element={<TiplocList dispatch={dispatch} isLoading={isLoading} />}
+          />
+          <Route
+            path="/path"
+            element={
+              <ShortestPathPage
+                dispatch={dispatch}
+                isLoading={isLoading}
+                path={path}
+              />
+            }
           />
         </Routes>
         <Footer />
